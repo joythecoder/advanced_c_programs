@@ -3,16 +3,18 @@
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
+
 using namespace std;
 
 void disp(int a[][3]){
 	cout<<"\n\n\t\t  ";
 	for(int i=0;i<3;i++){
 		for(int j=0;j<3;j++){	cout<<"|";
-			if(a[i][j]==2)	    cout<<" O ";
-			if(a[i][j]==1) 		cout<<" X ";
+			if(a[i][j]==2)	   cout<<" O ";
+			if(a[i][j]==1) 	cout<<" X ";
 			if(a[i][j]==0)		cout<<"___";
-		}cout<<"|\n\t\t  ";
+		}
+		cout<<"|\n\t\t\t  ";
 //		cout<<"\n\t\t  -------------\n\t\t  ";
 	}
 }
@@ -82,12 +84,12 @@ int main(){
 	srand(time(NULL));
 	
 	while(flag!=0){
-user:	cout<<"\n Enter the row and column of your turn(X) : "; cin>>r>>c;
+user_tag:	cout<<"\n Enter the row and column of your turn(X) : "; cin>>r>>c;
 		r--; c--;
 		if(possible(a,r,c)) a[r][c]=1;
 		else{
 			cout<<"\n\n\t\t\t  AREA OCCUPIED ENTER AGAIN :- \n\n";
-			goto user;
+			goto user_tag;
 		}
 //		for(int i=0;i<3;i++) for(int j=0;j<3;j++) cout<<" ....  "<<a[i][j]<<" ";
 		disp(a);
